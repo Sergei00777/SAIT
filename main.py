@@ -1,0 +1,128 @@
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_sqlalchemy import SQLAlchemy
+from db import db, Message
+from wtforms import StringField, TextAreaField, SubmitField
+from flask_wtf import FlaskForm
+from wtforms.validators import DataRequired, Email
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your-secret-key'  # Замените на свой!
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+
+# Форма обратной связи
+class ContactForm(FlaskForm):
+    name = StringField('Имя', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    message = TextAreaField('Сообщение', validators=[DataRequired()])
+    submit = SubmitField('Отправить')
+
+# Главная страница
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# О себе
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Портфолио
+@app.route('/portfolio')
+def portfolio():
+    projects = [
+        {
+            "title": "Communal-Apartment",
+            "description": "Система учёта платежей за ЖКУ с прогнозированием расходов."
+        },
+        {
+            "title": "HR-Department",
+            "description": "CRM для кадрового учёта с аналитикой отпусков/больничных."
+        },
+        {
+            "title": "MYcar",
+            "description": "Сервис для учёта затрат на автомобиль (топливо, ремонты). Интеграции: VIN-декодер, API АЗС.."
+        },
+        {
+            "title": "VIN-парсер",
+            "description": "Парсер данных об авто по VIN (стек: Requests, bs4). Применение: Использовался в проекте «I Avto Expert»."
+        },
+        {
+            "title": "Credit Calculator",
+            "description": "Микросервис расчёта кредитных платежей с REST API (FastAPI)."
+        },
+        {
+            "title": "VIN Checker Pro VIN Checker Pro",
+            "description": "Оно предназначено для проверки информации об автомобилях по их VIN-номеру (Vehicle Identification Number), а также предоставляет доступ к различным онлайн-сервисам проверки автомобилей (например, ГИБДД, ФССП, реестр залогов и др.)"
+        },
+        {
+            "title": "Car Analytics Dashboard Car Analytics Dashboard",
+            "description": "предназначенное для анализа данных об автомобилях. Программа позволяет загружать данные из файлов (CSV, Excel, TXT), фильтровать их по марке и году выпуска, а также строить различные типы графиков для визуализации статистики: цены, пробега, мощности двигателей и других параметров автомобилей"
+        },
+        {
+            "title": "Dog Photo Backup",
+            "description": "Резервное копирование фото собак Программа автоматически загружает случайные изображения собак указанной породы с сайта https://dog.ceo и сохраняет их на Яндекс.Диск, организуя файлы по папкам. Также сохраняется информация о загруженных файлах в формате JSON."
+        },
+        {
+            "title": "Парсер объявлений Drom.ru",
+            "description": "Простая и удобная программа на Python с графическим интерфейсом (PyQt5). Парсить данные из скачанных файлов: название автомобиля, пробег, цену."
+        },
+
+        # Добавьте остальные проекты из резюме
+    ]
+    return render_template('portfolio.html', projects=projects)
+
+@app.route('/certificates')
+def certificates():
+    certs = [
+        {
+            "title": "Python-разработчик (Нетология)",
+            "file": "5bbadd4abacab2959d6c9c433a0bbda2.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Основы Python: телеграм-бот (Нетология)",
+            "file": "60d9d334284a95b4db2936d81575302d.jpeg",
+            "year": 2022
+        },
+        {
+            "title": "ООП и работа с API (Нетология)",
+            "file": "72c0ccb64abe1ec1e2b45d2e221cf050.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Основы языка програмирования Python (Нетология)",
+            "file": "97db4c865af4b72e025525da50746459.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Git - система контроля версий (Нетология)",
+            "file": "3804da23da3c709181edfdeb723bd8d4.jpeg",
+            "year": 2025
+        },
+        # Добавьте остальные дипломы аналогично
+    ]
+    return render_template('certificates.html', certificates=certs)
+
+# Контакты
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        msg = Message(
+            name=form.name.data,
+            email=form.email.data,
+            message=form.message.data
+        )
+        db.session.add(msg)
+        db.session.commit()
+        flash('Сообщение отправлено!', 'success')
+        return redirect(url_for('home'))
+    return render_template('contact.html', form=form)
+
+if __name__ == '__main__':
+    app.run(debug=True)

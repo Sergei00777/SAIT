@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+h1 {
+    color: #333;
+}
+/* Адаптивные карточки */
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Затемнение изображений при наведении */
+.card img {
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+.card:hover img {
+    opacity: 1;
+}
+/* Плавные тени при наведении */
+.card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+/* Анимация иконок */
+i.fas {
+    transition: transform 0.2s;
+}
+i.fas:hover {
+    transform: scale(1.1);
+}
