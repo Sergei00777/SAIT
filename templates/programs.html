@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Мои программы | Сергей Петрусенко{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <section class="text-center mb-5">
+        <h1 class="display-4 mb-3">Мои программы</h1>
+        <p class="lead text-muted">Здесь вы можете скачать мои разработки</p>
+    </section>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-folder-fill text-warning display-4 mb-3"></i>
+                    <h3 class="h4 mb-3">Архив программ</h3>
+                    <p class="text-muted mb-4">
+                        В этом архиве собраны мои программы и утилиты для разработки.
+                        Вы можете скачать их для ознакомления.
+                    </p>
+                    <a href="https://disk.yandex.ru/d/s9TYmu3tzObCQw"
+                       target="_blank"
+                       class="btn btn-primary btn-lg">
+                        <i class="bi bi-download me-2"></i> Скачать с Яндекс.Диска
+                    </a>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-4">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                Файлы будут открываться в новом окне. Для скачивания нажмите кнопку "Скачать" в интерфейсе Яндекс.Диска.
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-primary {
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+</style>
+{% endblock %}

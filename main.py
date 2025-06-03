@@ -71,6 +71,22 @@ def portfolio():
             "title": "Парсер объявлений Drom.ru",
             "description": "Простая и удобная программа на Python с графическим интерфейсом (PyQt5). Парсить данные из скачанных файлов: название автомобиля, пробег, цену."
         },
+        {
+            "title": "Bitcoin Price Tracker Bitcoin Price Tracker",
+            "description": "Позволяет отслеживать текущий курс Bitcoin в реальном времени и просматривать историю изменений цены в виде графика.."
+        },
+        {
+            "title": "Elizabeth Bot – AI-автор для Telegram-канала",
+            "description": "Elizabeth Bot – это Telegram-бот на Python, который автоматически генерирует и публикует контент в канал. Бот создает два типа постов: личные истории и автомобильные новости, используя API Mistral AI."
+        },
+        {
+            "title": "Логистика автомобилей",
+            "description": " Программа управления автопарком Простое и удобное приложение для учёта и управления автомобилями, поступающими на реализацию. Программа позволяет."
+        },
+        {
+            "title": "QR-кодов",
+            "description": "Генерировать QR-коды из текста или ссылки Настроить внешний вид: цвет, размер, формат Добавлять логотип в центр QR-кода Сохранять результат в разных форматах."
+        },
 
         # Добавьте остальные проекты из резюме
     ]
@@ -104,6 +120,11 @@ def certificates():
             "file": "3804da23da3c709181edfdeb723bd8d4.jpeg",
             "year": 2025
         },
+        {
+            "title": "Поколение Python: курс для начинающих (Stepik)",
+            "file": "2025-06-03_10-15-39.jpeg",
+            "year": 2023
+        },
         # Добавьте остальные дипломы аналогично
     ]
     return render_template('certificates.html', certificates=certs)
@@ -123,6 +144,14 @@ def contact():
         flash('Сообщение отправлено!', 'success')
         return redirect(url_for('home'))
     return render_template('contact.html', form=form)
+
+@app.route('/programs')
+def programs():
+    return render_template('programs.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
 
 if __name__ == '__main__':
     app.run(debug=False)

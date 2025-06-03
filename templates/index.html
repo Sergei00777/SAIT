@@ -1,10 +1,67 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="text-center">
-    <h1>Сергей Петрусенко</h1>
-    <p class="lead">Backend-разработчик (Python, Django, Flask).</p>
-    <p>Телефон: +7 (904) 111-14-81 | Email: oni007@mail.ru</p>
-    <a href="https://github.com/Sergei00777" class="btn btn-dark">GitHub</a>
+<div class="container py-5">
+    <!-- Шапка с фото и именем -->
+    <section class="text-center mb-5">
+        <div class="mb-4">
+            <img src="{{ url_for('static', filename='images/photo.jpg') }}"
+                 alt="Сергей Петрусенко"
+                 class="rounded-circle shadow"
+                 style="width: 150px; height: 150px; object-fit: cover;">
+        </div>
+        <h1 class="display-4 mb-3">Сергей Петрусенко</h1>
+        <p class="lead text-muted">Backend-разработчик</p>
+    </section>
+
+    <!-- Блок навыков -->
+    <section class="mb-5">
+        <h2 class="h4 mb-3">Навыки</h2>
+        <ul class="list-unstyled">
+            <li><strong>Фреймворки:</strong> Django, FastAPI, Flask</li>
+            <li><strong>Базы данных:</strong> PostgreSQL, Redis, SQLAlchemy, Django ORM</li>
+            <li><strong>Асинхронность:</strong> asyncio, Celery, RQ</li>
+            <li><strong>API:</strong> REST (DRF, Pydantic), WebSockets</li>
+            <li><strong>Инфраструктура:</strong> Docker, Gunicorn, Nginx</li>
+        </ul>
+    </section>
+
+    <!-- Контакты -->
+    <section class="mb-5">
+        <h2 class="h4 mb-3">Контакты</h2>
+        <p>
+            <a href="tel:+79041111481" class="text-decoration-none me-3">
+                <i class="bi bi-phone"></i> +7 (904) 111-14-81
+            </a>
+            <a href="mailto:oni007@mail.ru" class="text-decoration-none">
+                <i class="bi bi-envelope"></i> oni007@mail.ru
+            </a>
+        </p>
+    </section>
+
+    <!-- Кнопка GitHub -->
+    <div class="text-center">
+        <a href="https://github.com/Sergei00777" class="btn btn-dark btn-lg">
+            <i class="bi bi-github"></i> GitHub
+        </a>
+    </div>
 </div>
+
+<!-- Небольшие стили для улучшения внешнего вида -->
+<style>
+    img {
+        border: 3px solid #f8f9fa;
+        transition: transform 0.3s;
+    }
+    img:hover {
+        transform: scale(1.05);
+    }
+    .btn-dark {
+        transition: all 0.3s;
+    }
+    .btn-dark:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+</style>
 {% endblock %}

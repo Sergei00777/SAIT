@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Python (Flask, Django, FastAPI)</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Python (Flask, PyQt5, Django, FastAPI)</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Оптимизация SQL (PostgreSQL, MySQL)</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>NoSQL (MongoDB, Redis)</li>
                                 <li><i class="fas fa-check text-success me-2"></i>Разработка RESTful API</li>
@@ -91,23 +91,86 @@
             <h2 class="fw-bold mb-4 border-bottom pb-2">Личные качества</h2>
             <div class="row g-3 mb-5">
                 <div class="col-md-6">
-                    <div class="p-3 bg-light rounded">
-                        <i class="fas fa-brain text-primary me-2"></i> Аналитический склад ума
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-brain text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Аналитическое мышление</h5>
+                            </div>
+                            <p class="text-muted">Способность анализировать сложные системы и находить оптимальные решения</p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
-                    <div class="p-3 bg-light rounded">
-                        <i class="fas fa-hands-helping text-primary me-2"></i> Командная работа
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-users text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Командная работа</h5>
+                            </div>
+                            <p class="text-muted">Опыт успешной коллаборации в распределённых командах разработки</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-3 bg-light rounded">
-                        <i class="fas fa-bolt text-primary me-2"></i> Обучаемость
+
+                <div class="col-md-6 mt-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-bolt text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Быстрая обучаемость</h5>
+                            </div>
+                            <p class="text-muted">Способность осваивать новые технологии в сжатые сроки</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-3 bg-light rounded">
-                        <i class="fas fa-star text-primary me-2"></i> Ответственность
+
+                <div class="col-md-6 mt-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-star text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Ответственность</h5>
+                            </div>
+                            <p class="text-muted">Полная вовлечённость в проекты и соблюдение дедлайнов</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-lightbulb text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Креативность</h5>
+                            </div>
+                            <p class="text-muted">Нестандартный подход к решению технических задач</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-tasks text-primary fs-4"></i>
+                                </div>
+                                <h5 class="mb-0">Организованность</h5>
+                            </div>
+                            <p class="text-muted">Чёткое планирование и структурирование рабочего процесса</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,4 +198,14 @@
         </div>
     </div>
 </div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>
 {% endblock %}

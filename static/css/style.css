@@ -35,3 +35,10 @@ i.fas {
 i.fas:hover {
     transform: scale(1.1);
 }
+.btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+a:hover {
+    opacity: 0.8;
+}
