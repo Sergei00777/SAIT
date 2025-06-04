@@ -1,67 +1,359 @@
 {% extends "base.html" %}
 
+{% block title %}Сергей Петрусенко | Backend-разработчик{% endblock %}
+
 {% block content %}
 <div class="container py-5">
-    <!-- Шапка с фото и именем -->
-    <section class="text-center mb-5">
-        <div class="mb-4">
-            <img src="{{ url_for('static', filename='images/photo.jpg') }}"
-                 alt="Сергей Петрусенко"
-                 class="rounded-circle shadow"
-                 style="width: 150px; height: 150px; object-fit: cover;">
+    <!-- Анимированная шапка -->
+    <section class="text-center mb-5 animate__animated animate__fadeIn">
+        <div class="avatar-container mb-4">
+            <div class="avatar-border">
+                <img src="{{ url_for('static', filename='images/photo.jpg') }}"
+                     alt="Сергей Петрусенко"
+                     class="avatar-img rounded-circle shadow-lg">
+            </div>
+            <div class="position-absolute top-0 start-50 translate-middle">
+                <span class="badge bg-primary pulse">Доступен для проектов</span>
+            </div>
         </div>
-        <h1 class="display-4 mb-3">Сергей Петрусенко</h1>
-        <p class="lead text-muted">Backend-разработчик</p>
+        <h1 class="display-4 mb-3 gradient-text">Сергей Петрусенко</h1>
+        <p class="lead text-muted typed-text" data-typed-items='["Backend-разработчик", "Python инженер", "API специалист", "DevOps энтузиаст"]'></p>
     </section>
 
-    <!-- Блок навыков -->
+    <!-- Карточки навыков с анимацией -->
     <section class="mb-5">
-        <h2 class="h4 mb-3">Навыки</h2>
-        <ul class="list-unstyled">
-            <li><strong>Фреймворки:</strong> Django, FastAPI, Flask</li>
-            <li><strong>Базы данных:</strong> PostgreSQL, Redis, SQLAlchemy, Django ORM</li>
-            <li><strong>Асинхронность:</strong> asyncio, Celery, RQ</li>
-            <li><strong>API:</strong> REST (DRF, Pydantic), WebSockets</li>
-            <li><strong>Инфраструктура:</strong> Docker, Gunicorn, Nginx</li>
-        </ul>
+        <h2 class="h3 mb-4 text-center section-title">Мои навыки</h2>
+        <div class="row g-4">
+            <!-- Карточка 1 -->
+            <div class="col-md-6">
+                <div class="skill-card card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="skill-icon bg-primary bg-opacity-10 text-primary">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="h5 mb-0 ms-3">Backend разработка</h3>
+                        </div>
+                        <ul class="list-unstyled skill-items">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Django, FastAPI, Flask</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Асинхронное программирование</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Микросервисная архитектура</li>
+                        </ul>
+                        <div class="progress mt-3" style="height: 6px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="col-md-6">
+                <div class="skill-card card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="skill-icon bg-success bg-opacity-10 text-success">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="h5 mb-0 ms-3">Базы данных</h3>
+                        </div>
+                        <ul class="list-unstyled skill-items">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> PostgreSQL, MySQL</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Redis, MongoDB</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> SQLAlchemy, Django ORM</li>
+                        </ul>
+                        <div class="progress mt-3" style="height: 6px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="col-md-6">
+                <div class="skill-card card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="skill-icon bg-info bg-opacity-10 text-info">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="h5 mb-0 ms-3">DevOps</h3>
+                        </div>
+                        <ul class="list-unstyled skill-items">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Docker, Kubernetes</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> CI/CD (GitHub Actions)</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Nginx, Gunicorn</li>
+                        </ul>
+                        <div class="progress mt-3" style="height: 6px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="col-md-6">
+                <div class="skill-card card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="skill-icon bg-warning bg-opacity-10 text-warning">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="h5 mb-0 ms-3">Безопасность</h3>
+                        </div>
+                        <ul class="list-unstyled skill-items">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> JWT, OAuth 2.0</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Защита от уязвимостей</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> HTTPS/SSL настройка</li>
+                        </ul>
+                        <div class="progress mt-3" style="height: 6px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- Интерактивные контакты -->
     <section class="mb-5">
-        <h2 class="h4 mb-3">Контакты</h2>
-        <p>
-            <a href="tel:+79041111481" class="text-decoration-none me-3">
-                <i class="bi bi-phone"></i> +7 (904) 111-14-81
-            </a>
-            <a href="mailto:oni007@mail.ru" class="text-decoration-none">
-                <i class="bi bi-envelope"></i> oni007@mail.ru
-            </a>
-        </p>
+        <h2 class="h3 mb-4 text-center section-title">Контакты</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="contact-card card h-100 shadow-sm border-0">
+                    <div class="card-body text-center p-4">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary mx-auto mb-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="h5">Телефон / Мессенджеры</h3>
+                        <p class="mb-3">
+                            <a href="tel:+79041111481" class="text-decoration-none">+7 (904) 111-14-81</a>
+                        </p>
+                        <div class="d-flex justify-content-center">
+                            <a href="https://wa.me/79041111481" class="btn btn-success btn-sm rounded-pill me-2">
+                                <i class="fab fa-whatsapp me-1"></i> WhatsApp
+                            </a>
+                            <a href="viber://chat?number=79041111481" class="btn btn-purple btn-sm rounded-pill">
+                                <i class="fab fa-viber me-1"></i> Viber
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="contact-card card h-100 shadow-sm border-0">
+                    <div class="card-body text-center p-4">
+                        <div class="contact-icon bg-info bg-opacity-10 text-info mx-auto mb-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="h5">Электронная почта</h3>
+                        <p class="mb-3">
+                            <a href="mailto:oni007@mail.ru" class="text-decoration-none">oni007@mail.ru</a>
+                        </p>
+                        <button class="btn btn-primary btn-sm rounded-pill copy-email">
+                            <i class="fas fa-copy me-1"></i> Скопировать email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Кнопка GitHub -->
+    <!-- Социальные сети -->
     <div class="text-center">
-        <a href="https://github.com/Sergei00777" class="btn btn-dark btn-lg">
-            <i class="bi bi-github"></i> GitHub
-        </a>
+        <h3 class="h4 mb-3">Мои соцсети</h3>
+        <div class="d-flex justify-content-center">
+            <a href="https://github.com/Sergei00777" class="social-icon btn btn-dark rounded-circle mx-2">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="@PSergei007" class="social-icon btn btn-primary rounded-circle mx-2">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="#" class="social-icon btn btn-info rounded-circle mx-2">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.youtube.com/@magic_auto_" class="social-icon btn btn-danger rounded-circle mx-2">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
     </div>
 </div>
 
-<!-- Небольшие стили для улучшения внешнего вида -->
+<!-- Стили -->
 <style>
-    img {
-        border: 3px solid #f8f9fa;
-        transition: transform 0.3s;
+    :root {
+        --primary-color: #4e73df;
+        --secondary-color: #1cc88a;
+        --purple-color: #6f42c1;
     }
-    img:hover {
-        transform: scale(1.05);
+
+    /* Анимации */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
     }
-    .btn-dark {
-        transition: all 0.3s;
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
     }
-    .btn-dark:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    /* Основные стили */
+    .gradient-text {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .avatar-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .avatar-border {
+        display: inline-block;
+        padding: 5px;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .avatar-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 3px solid white;
+        transition: all 0.3s ease;
+    }
+
+    .avatar-img:hover {
+        transform: rotate(5deg) scale(1.1);
+    }
+
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    .typed-text {
+        min-height: 30px;
+    }
+
+    .section-title {
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .skill-card {
+        transition: all 0.3s ease;
+        border-radius: 15px !important;
+        overflow: hidden;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    .skill-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .skill-items li {
+        padding: 5px 0;
+    }
+
+    .contact-card {
+        transition: all 0.3s ease;
+        border-radius: 15px !important;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .btn-purple {
+        background-color: var(--purple-color);
+        border-color: var(--purple-color);
+    }
+
+    .btn-purple:hover {
+        background-color: #5a3daf;
+        border-color: #5a3daf;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
     }
 </style>
+
+<!-- Скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    // Анимация набора текста
+    document.addEventListener('DOMContentLoaded', function(){
+        if(document.querySelector('.typed-text')){
+            var typed = new Typed('.typed-text', {
+                stringsElement: '.typed-text',
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: true
+            });
+        }
+
+        // Копирование email
+        document.querySelectorAll('.copy-email').forEach(btn => {
+            btn.addEventListener('click', function() {
+                navigator.clipboard.writeText('oni007@mail.ru');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check me-1"></i> Скопировано!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    });
+</script>
 {% endblock %}
