@@ -87,6 +87,47 @@ def portfolio():
             "title": "QR-кодов",
             "description": "Генерировать QR-коды из текста или ссылки Настроить внешний вид: цвет, размер, формат Добавлять логотип в центр QR-кода Сохранять результат в разных форматах."
         },
+        {
+            "title": "ModernPDFEditor (Python)",
+            "description": "Редактор PDF. Укажите библиотеки ( PyPDF2, ReportLab)."
+        },
+        {
+            "title": "GOVORITTEXT  (HTML)",
+            "description": "Приложение для голосового ввода."
+        },
+        {
+            "title": "textconverter (HTML)",
+            "description": "Конвертер текста. Полезно для резюме."
+        },
+        {
+            "title": "home_accounting",
+            "description": "Система учета финансов. Работа с базами данных (SQLite, PostgreSQL)"
+        },
+        {
+            "title": "Web_scrapping",
+            "description": "Скрипты для сбора данных. Библиотеки (BeautifulSoup, Scrapy, Selenium)."
+        },
+        {
+            "title": "Password",
+            "description": "Генератор/менеджер паролей."
+        },
+        {
+            "title": "Thesnake",
+            "description": "Классическая игра Змейка. Использование HTML/CSS/JS для реализации."
+        },
+        {
+            "title": "TICtecTOE (Python)",
+            "description": "Игра Крестики-нолики с логикой на Python."
+        },
+        {
+            "title": "Tetris",
+            "description": "Полноценная игра — Работы с графикой (Pygame)."
+        },
+        {
+            "title": "ping_pong (Python)",
+            "description": "Простая аркадная игра."
+        },
+
 
         # Добавьте остальные проекты из резюме
     ]
@@ -126,6 +167,41 @@ def certificates():
             "title": "Поколение Python: курс для начинающих (Stepik)",
             "file": "2025-06-03_10-15-39.jpeg",
             "year": 2023
+        },
+        {
+            "title": "Лучший по Python. Для всех начинающих! (Stepik)",
+            "file": "2025-07-24_18-17-00.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Лучший по Python. Часть 2! (Stepik)",
+            "file": "2025-07-24_18-17-59.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Лучший по Python. Часть 3! (Stepik)",
+            "file": "Python3.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Git: от новичка до профи (Stepik)",
+            "file": "git2.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Создание Телеграм БОТОВ (Stepik)",
+            "file": "БОТ.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Риторика (Stepik)",
+            "file": "Риторика.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Игрофикация (Stepik)",
+            "file": "Игрофикация.jpeg",
+            "year": 2025
         },
         # Добавьте остальные дипломы аналогично
     ]
