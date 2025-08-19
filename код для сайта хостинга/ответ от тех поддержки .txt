@@ -1,0 +1,36 @@
+Приношу извинения за длительное ожидание ответа.
+
+Создали файл passenger_wsgi.py.
+
+Далее стала возникать ошибка:
+
+App 2430170 output:   File "/var/www/u3157264/data/www/xn----etbfbu3bebz.xn--p1ai/passenger_wsgi.py", line 11, in <module>
+App 2430170 output:
+App 2430170 output: from main import application
+App 2430170 output:
+App 2430170 output: ImportError
+App 2430170 output: :
+App 2430170 output: cannot import name 'application' from 'main' (/var/www/u3157264/data/www/xn----etbfbu3bebz.xn--p1ai/main.py)
+App 2430170 output:
+Дело в том, что для размещения Flask приложение главный экземпляр класса должен называться application, а не app.
+
+Заменил все упоминания app на application в файле main.py, создав предварительно копию оригинала main_old.py
+
+Далее стала возникать ошибка при инициализации проекта:
+
+Traceback (most recent call last):
+  File "/var/www/u3157264/data/www/xn----etbfbu3bebz.xn--p1ai/passenger_wsgi.py", line 11, in <module>
+    from main import application
+  File "/var/www/u3157264/data/www/xn----etbfbu3bebz.xn--p1ai/main.py", line 13, in <module>
+    db.init_application(application)
+  File "/var/www/u3157264/data/flaskenv/lib/python3.9/site-packages/flask_sqlalchemy/extension.py", line 1008, in __getattr__
+    raise AttributeError(name)
+AttributeError: init_application
+Проблема возникает в следующем участке кода main.py:
+
+db.init_application(application)
+with application.application_context():
+    db.create_all()
+Закомментировал его, после чего сайт заработал.
+
+Пожалуйста, проверьте.

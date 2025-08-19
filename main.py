@@ -10,9 +10,9 @@ app.config['SECRET_KEY'] = 'your-secret-key'  # Замените на свой!
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app)
-with app.app_context():
-    db.create_all()
+#db.init_app(app)
+#with app.app_context():
+#    db.create_all()
 
 # Форма обратной связи
 class ContactForm(FlaskForm):
@@ -203,6 +203,41 @@ def certificates():
             "file": "Игрофикация.jpeg",
             "year": 2025
         },
+        {
+            "title": "Профессиональная работа с Python (Нетология)",
+            "file": "Профессиональная работа с Python.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Основы Excel (Stepik)",
+            "file": "Основы Excel.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Обучения онлайн (Нетология)",
+            "file": "Обучения онлайн.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Компьютерная грамотность (Нетология)",
+            "file": "Компьютерная грамотность.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Офисные приложения для начинающих (Word, Excel, Google сервисы) (Stepik)",
+            "file": "Офисные приложения для начинающих (Word, Excel, Google сервисы).jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Войти в IT (Stepik)",
+            "file": "Войти в IT.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Риск-менеджмент в стартапах (Stepik)",
+            "file": "Риск-менеджмент в стартапах.jpeg",
+            "year": 2025
+        },
         # Добавьте остальные дипломы аналогично
     ]
     return render_template('certificates.html', certificates=certs)
@@ -233,6 +268,4 @@ def resume():
 
 
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=False)
