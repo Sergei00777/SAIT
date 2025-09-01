@@ -238,6 +238,16 @@ def certificates():
             "file": "Риск-менеджмент в стартапах.jpeg",
             "year": 2025
         },
+        {
+            "title": "Основы программирования на языке Python (Stepik)",
+            "file": "Основы программирования на языке Python.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Stepik для учащихся (Stepik)",
+            "file": "Stepik для учащихся.jpeg",
+            "year": 2025
+        },
         # Добавьте остальные дипломы аналогично
     ]
     return render_template('certificates.html', certificates=certs)

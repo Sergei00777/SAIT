@@ -4,131 +4,135 @@
 
 {% block content %}
 <div class="container py-5">
+    <!-- Заголовок -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold mb-3">Свяжитесь со мной</h1>
+            <p class="lead text-muted">Выберите удобный способ связи — отвечаю быстро!</p>
+        </div>
+    </div>
+
     <div class="row">
-        <!-- Левая колонка - контактная информация -->
-        <div class="col-lg-5 mb-4 mb-lg-0">
-            <div class="card shadow-sm h-100">
-                <div class="card-body p-4">
-                    <h2 class="display-5 mb-4 text-center">Свяжитесь со мной</h2>
-
-                    <!-- Фото -->
-                    <div class="text-center mb-4">
-                        <img src="{{ url_for('static', filename='images/profile.jpg') }}"
-                             alt="Сергей Петрусенко"
-                             class="rounded-circle shadow"
-                             style="width: 200px; height: 200px; object-fit: cover;">
-                    </div>
-
-                    <!-- Контактные данные -->
-                    <div class="contact-info">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-circle bg-primary text-white me-3">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0">Адрес</h5>
-                                <p class="mb-0">Россия, Иркутская область, г. Иркутск</p>
-                            </div>
+        <!-- Основной блок с контактами -->
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="row align-items-center">
+                        <!-- Фото -->
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+                                 alt="Сергей Петрусенко"
+                                 class="rounded-circle shadow-lg"
+                                 style="width: 220px; height: 220px; object-fit: cover;">
                         </div>
 
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-circle bg-success text-white me-3">
-                                <i class="fas fa-phone"></i>
+                        <!-- Контактная информация -->
+                        <div class="col-md-8">
+                            <h2 class="fw-bold mb-4">Сергей Петрусенко</h2>
+
+                            <div class="contact-item d-flex align-items-center mb-3">
+                                <div class="icon-wrapper bg-primary me-3">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Россия, Иркутская область, г. Иркутск</p>
+                                </div>
                             </div>
-                            <div>
-                                <h5 class="mb-0">Телефон</h5>
-                                <p class="mb-0">
-                                    <a href="tel:+79041111481" class="text-decoration-none">8 (904) 111-14-81</a>
-                                </p>
-                                <div class="mt-2">
-                                    <a href="https://wa.me/79041111481" class="btn btn-success btn-sm me-2">
-                                        <i class="fab fa-whatsapp"></i> WhatsApp
+
+                            <div class="contact-item d-flex align-items-center mb-3">
+                                <div class="icon-wrapper bg-success me-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-1">8 (904) 111-14-81</p>
+                                    <small class="text-muted">Работаю с 9:00 до 18:00 (GMT+8)</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-item d-flex align-items-center mb-4">
+                                <div class="icon-wrapper bg-info me-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0">oni007@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <!-- Мессенджеры -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center mb-4">Напишите мне в мессенджер</h3>
+
+                            <div class="row">
+                                <!-- WhatsApp -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="https://wa.me/79041111481"
+                                       class="btn btn-success w-100 py-3 btn-messenger">
+                                        <i class="fab fa-whatsapp fa-2x mb-2"></i>
+                                        <span>WhatsApp</span>
                                     </a>
-                                    <a href="viber://chat?number=79041111481" class="btn btn-purple btn-sm">
-                                        <i class="fab fa-viber"></i> Viber
+                                </div>
+
+                                <!-- Telegram -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="https://t.me/PSergei007"
+                                       class="btn btn-primary w-100 py-3 btn-messenger">
+                                        <i class="fab fa-telegram fa-2x mb-2"></i>
+                                        <span>Telegram</span>
+                                    </a>
+                                </div>
+
+                                <!-- Viber -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="viber://chat?number=79041111481"
+                                       class="btn btn-purple w-100 py-3 btn-messenger">
+                                        <i class="fab fa-viber fa-2x mb-2"></i>
+                                        <span>Viber</span>
+                                    </a>
+                                </div>
+
+                                <!-- VK Мессенджер -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="https://vk.com/id710245005"
+                                       class="btn btn-vk w-100 py-3 btn-messenger">
+                                        <i class="fab fa-vk fa-2x mb-2"></i>
+                                        <span>VK Мессенджер</span>
+                                    </a>
+                                </div>
+
+                                <!-- Max (VK) -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="https://max.ru/u/f9LHodD0cOK-0qj67sp3D4Zpo-HexV5mx_Ii7eG-tx305EYAsert5MTPodw"
+                                       class="btn btn-max w-100 py-3 btn-messenger">
+                                        <i class="fas fa-comment-dots fa-2x mb-2"></i>
+                                        <span>MAX </span>
+                                    </a>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-3 col-6 mb-3">
+                                    <a href="mailto:oni007@mail.ru"
+                                       class="btn btn-outline-dark w-100 py-3 btn-messenger">
+                                        <i class="fas fa-envelope fa-2x mb-2"></i>
+                                        <span>Email</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-circle bg-info text-white me-3">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0">Email</h5>
-                                <p class="mb-0">
-                                    <a href="mailto:oni007@mail.ru" class="text-decoration-none">oni007@mail.ru</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center">
-                            <div class="icon-circle bg-primary text-white me-3">
-                                <i class="fab fa-telegram"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0">Telegram</h5>
-                                <p class="mb-0">
-                                    <a href="https://t.me/PSergei007" class="text-decoration-none">@PSergei007</a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
-                    <hr class="my-4">
-
-                    <div class="text-center">
-                        <p>Работаю с 9:00 до 18:00 по иркутскому времени (GMT+8). Отвечаю в течение 24 часов.</p>
-                        <p>Для срочных вопросов лучше звонить или писать в WhatsApp.</p>
-                        <p>или Max — новый отечественный мессенджер от VK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Правая колонка - форма обратной связи -->
-        <div class="col-lg-7">
-            <div class="card shadow-sm h-100">
-                <div class="card-body p-4">
-                    <h2 class="display-5 mb-4">Форма обратной связи</h2>
-                    <p class="mb-4">Есть вопросы или предложения? Напишите мне, и я обязательно отвечу!</p>
-
-                    <form method="POST" action="{{ url_for('contact') }}">
-                        {{ form.hidden_tag() }}
-
-                        <div class="mb-3">
-                            {{ form.name.label(class="form-label") }}
-                            {{ form.name(class="form-control", placeholder="Ваше имя") }}
-                        </div>
-
-                        <div class="mb-3">
-                            {{ form.email.label(class="form-label") }}
-                            {{ form.email(class="form-control", placeholder="example@mail.ru") }}
-                        </div>
-
-                        <div class="mb-3">
-                            {{ form.message.label(class="form-label") }}
-                            {{ form.message(class="form-control", rows=5, placeholder="Ваше сообщение...") }}
-                        </div>
-
-                        <div class="d-grid">
-                            {{ form.submit(class="btn btn-primary btn-lg") }}
-                        </div>
-                    </form>
-
-                    <div class="mt-4 text-center">
-                        <p class="mb-2">Или свяжитесь со мной через мессенджеры:</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://wa.me/79041111481" class="btn btn-success mx-2">
-                                <i class="fab fa-whatsapp fa-lg me-2"></i> WhatsApp
-                            </a>
-                            <a href="viber://chat?number=79041111481" class="btn btn-purple mx-2">
-                                <i class="fab fa-viber fa-lg me-2"></i> Viber
-                            </a>
-                            <a href="https://t.me/PSergei007" class="btn btn-primary mx-2">
-                                <i class="fab fa-telegram fa-lg me-2"></i> Telegram
-                            </a>
+                    <!-- Дополнительная информация -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="alert alert-info text-center">
+                                <h5>📅 Время работы</h5>
+                                <p class="mb-2">Пн-Пт: 9:00 - 18:00 по иркутскому времени (GMT+8)</p>
+                                <p class="mb-0">Отвечаю в течение 24 часов. Для срочных вопросов — звоните!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,42 +142,71 @@
 </div>
 
 <style>
-    .icon-circle {
-        width: 40px;
-        height: 40px;
+    .icon-wrapper {
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        color: white;
+    }
+
+    .btn-messenger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .btn-messenger:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
 
     .btn-purple {
-        background-color: #7360F2;
-        color: white;
-        border-color: #7360F2;
+        background: linear-gradient(45deg, #7360F2, #8B7AFF);
     }
 
-    .btn-purple:hover {
-        background-color: #5a4acf;
-        color: white;
+    .btn-vk {
+        background: linear-gradient(45deg, #4A76A8, #5B88BD);
     }
 
-    .contact-info h5 {
-        font-size: 1.1rem;
-        font-weight: 600;
+    .btn-max {
+        background: linear-gradient(45deg, #2688EB, #36A3FF);
     }
 
-    .contact-info p {
-        font-size: 0.95rem;
+    .btn-yuum {
+        background: linear-gradient(45deg, #FF3366, #FF6699);
+    }
+
+    .btn-sber {
+        background: linear-gradient(45deg, #21A038, #32B64A);
+    }
+
+    .contact-item {
+        padding: 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-item:hover {
+        background-color: #f8f9fa;
     }
 
     .card {
-        transition: transform 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
     }
 
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .display-4 {
+        background: linear-gradient(45deg, #4e54c8, #8f94fb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 </style>
 {% endblock %}
