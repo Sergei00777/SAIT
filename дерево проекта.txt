@@ -1,0 +1,46 @@
+my-portfolio/
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── images/
+│       ├── profile.jpg
+│       ├── photo.jpg
+│       └── certificates/
+│           ├── 5bbadd4abacab2959d6c9c433a0bbda2.jpeg
+│           ├── 60d9d334284a95b4db2936d81575302d.jpeg
+│           ├── 72c0ccb64abe1ec1e2b45d2e221cf050.jpeg
+│           ├── 97db4c865af4b72e025525da50746459.jpeg
+│           ├── 3804da23da3c709181edfdeb723bd8d4.jpeg
+│           ├── 2025-06-03_10-15-39.jpeg
+│           ├── 2025-07-24_18-17-00.jpeg
+│           ├── 2025-07-24_18-17-59.jpeg
+│           ├── Python3.jpeg
+│           ├── git2.jpeg
+│           ├── BOT.jpeg
+│           ├── ritorika.jpeg
+│           ├── igrofik.jpeg
+│           ├── profickPython.jpeg
+│           ├── Excel.jpeg
+│           ├── onlain.jpeg
+│           ├── komp.jpeg
+│           ├── WordExcelGoogle.jpeg
+│           ├── voit.jpeg
+│           ├── stertap.jpeg
+│           ├── Pythonuzik.jpeg
+│           ├── Stepikunik.jpeg
+│           ├── Dj.jpeg
+│           └── Введение в SQL.jpeg
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── about.html
+│   ├── resume.html
+│   ├── portfolio.html
+│   ├── programs.html
+│   ├── certificates.html
+│   └── contact.html
+├── database.db
+├── main.py
+├── db.py
+├── passenger_wsgi.py
+└── requirements.txt
