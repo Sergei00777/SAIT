@@ -5,10 +5,10 @@ from wtforms import StringField, TextAreaField, SubmitField
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Email
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key'  # Замените на свой!
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+application = Flask(__name__)
+application.config['SECRET_KEY'] = 'your-secret-key'  # Замените на свой!
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #db.init_app(app)
 #with app.app_context():
@@ -22,17 +22,17 @@ class ContactForm(FlaskForm):
     submit = SubmitField('Отправить')
 
 # Главная страница
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('index.html')
 
 # О себе
-@app.route('/about')
+@application.route('/about')
 def about():
     return render_template('about.html')
 
 # Портфолио
-@app.route('/portfolio')
+@application.route('/portfolio')
 def portfolio():
     projects = [
         {
@@ -135,7 +135,7 @@ def portfolio():
 
     return render_template('portfolio.html', projects=projects)
 
-@app.route('/certificates')
+@application.route('/certificates')
 def certificates():
     certs = [
         {
@@ -190,62 +190,72 @@ def certificates():
         },
         {
             "title": "Создание Телеграм БОТОВ (Stepik)",
-            "file": "БОТ.jpeg",
+            "file": "BOT.jpeg",
             "year": 2025
         },
         {
             "title": "Риторика (Stepik)",
-            "file": "Риторика.jpeg",
+            "file": "ritorika.jpeg",
             "year": 2025
         },
         {
             "title": "Игрофикация (Stepik)",
-            "file": "Игрофикация.jpeg",
+            "file": "igrofik.jpeg",
             "year": 2025
         },
         {
             "title": "Профессиональная работа с Python (Нетология)",
-            "file": "Профессиональная работа с Python.jpeg",
+            "file": "profickPython.jpeg",
             "year": 2025
         },
         {
             "title": "Основы Excel (Stepik)",
-            "file": "Основы Excel.jpeg",
+            "file": "Excel.jpeg",
             "year": 2025
         },
         {
             "title": "Обучения онлайн (Нетология)",
-            "file": "Обучения онлайн.jpeg",
+            "file": "onlain.jpeg",
             "year": 2025
         },
         {
             "title": "Компьютерная грамотность (Нетология)",
-            "file": "Компьютерная грамотность.jpeg",
+            "file": "komp.jpeg",
             "year": 2025
         },
         {
             "title": "Офисные приложения для начинающих (Word, Excel, Google сервисы) (Stepik)",
-            "file": "Офисные приложения для начинающих (Word, Excel, Google сервисы).jpeg",
+            "file": "WordExcelGoogle.jpeg",
             "year": 2025
         },
         {
             "title": "Войти в IT (Stepik)",
-            "file": "Войти в IT.jpeg",
+            "file": "voit.jpeg",
             "year": 2025
         },
         {
             "title": "Риск-менеджмент в стартапах (Stepik)",
-            "file": "Риск-менеджмент в стартапах.jpeg",
+            "file": "stertap.jpeg",
             "year": 2025
         },
         {
             "title": "Основы программирования на языке Python (Stepik)",
-            "file": "Основы программирования на языке Python.jpeg",
+            "file": "Pythonuzik.jpeg",
             "year": 2025
         },
         {
             "title": "Stepik для учащихся (Stepik)",
-            "file": "Stepik для учащихся.jpeg",
+            "file": "Stepikunik.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Django: создание backendприложений (Нетология)",
+            "file": "Dj.jpeg",
+            "year": 2025
+        },
+        {
+            "title": "Введение в SQL (Stepik)",
+            "file": "Введение в SQL.jpeg",
             "year": 2025
         },
         # Добавьте остальные дипломы аналогично
@@ -253,7 +263,7 @@ def certificates():
     return render_template('certificates.html', certificates=certs)
 
 # Контакты
-@app.route('/contact', methods=['GET', 'POST'])
+@application.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
@@ -268,14 +278,15 @@ def contact():
         return redirect(url_for('home'))
     return render_template('contact.html', form=form)
 
-@app.route('/programs')
+@application.route('/programs')
 def programs():
     return render_template('programs.html')
 
-@app.route('/resume')
+@application.route('/resume')
 def resume():
     return render_template('resume.html')
 
 
+
 if __name__ == '__main__':
-    app.run(debug=False)
+    application.run(debug=False)

@@ -1,17 +1,244 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Мои проекты</h1>
-<div class="row">
-    {% for project in projects %}
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
+<div class="creative-portfolio">
+    <!-- Анимированный заголовок -->
+    <div class="main-title">
+        <h1 class="magic-title">Творческое пространство</h1>
+        <div class="subtitle">Мои проекты · Мои идеи · Мой мир</div>
+    </div>
+
+    <!-- Сетка проектов -->
+    <div class="creative-grid">
+        {% for project in projects %}
+        <div class="idea-card">
+            <!-- Декоративный элемент -->
+            <div class="card-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-line"></div>
+            </div>
+
+            <!-- Контент карточки -->
+            <div class="idea-content">
+                <h3 class="idea-title">{{ project.title }}</h3>
+                <p class="idea-text">{{ project.description }}</p>
+
+                <!-- Декоративные точки -->
+                <div class="idea-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    <!-- Декоративный футер -->
+    <div class="portfolio-footer">
+        <div class="footer-wave">✨</div>
+    </div>
 </div>
+
+<style>
+.creative-portfolio {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+/* Анимированный заголовок */
+.main-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.magic-title {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+/* Сетка проектов */
+.creative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Карточка идеи */
+.idea-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.idea-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    z-index: -1;
+    border-radius: 25px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.idea-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.idea-card:hover::before {
+    opacity: 1;
+}
+
+/* Декоративные элементы карточки */
+.card-decoration {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.decoration-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    margin-bottom: 0.5rem;
+}
+
+.decoration-line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, #45b7d1, transparent);
+    margin-left: 9px;
+}
+
+/* Контент карточки */
+.idea-content {
+    position: relative;
+    z-index: 2;
+}
+
+.idea-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #2d3436, #636e72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.idea-text {
+    color: #636e72;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Декоративные точки */
+.idea-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.dot:nth-child(1) {
+    background: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    background: #4ecdc4;
+    animation-delay: 0.4s;
+}
+
+.dot:nth-child(3) {
+    background: #45b7d1;
+    animation-delay: 0.8s;
+}
+
+/* Футер с волной */
+.portfolio-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.footer-wave {
+    font-size: 3rem;
+    animation: wave 3s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .magic-title {
+        font-size: 2.5rem;
+    }
+
+    .creative-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .idea-card {
+        padding: 1.5rem;
+    }
+}
+</style>
 {% endblock %}
